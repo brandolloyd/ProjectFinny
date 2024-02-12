@@ -1,4 +1,6 @@
-name = input('Hello! Welcome to FinnCorp, please start by entering your first name: ')
-print ('Greetings ',(name))
+# This is the main code for Project Finny
+# Git commands to upload: git add . -> git commit -m "add message here" -> git push
+# Git command to download most recent code: git pull
 
-# This is a test
+# Welcome
+print ('Thank you for showing interest in applying at FinnCorp, please start by answering some questions for us!')
