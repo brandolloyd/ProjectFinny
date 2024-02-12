@@ -6,3 +6,7 @@
 print ('Thank you for showing interest in applying at FinnCorp, please start by answering some questions for us!')
 name = input('Please start off by telling us... what is your name? ')
 print ('We are so pleased to meet you ' + name + '!')
+
+location = input('Where are you from ' +name+'? ')
+print (location + '...')
+print ('Sounds lovely!')
