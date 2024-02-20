@@ -5,6 +5,7 @@
 
 
 
+#This Object is the user.
 class createUser():
     #aquire users name and location
     name = input('Please start off by telling us... what is your name ').strip().title()
@@ -15,13 +16,14 @@ class createUser():
     options = ['Being alone', 'Dying with regret', 'Losing the people I love', 'Nothing']
     optionsList = '\n'.join(options)
     while(True):
-        fear1 = input('What is your greatest Fear\n' + format(optionsList) + '\n')
-        if fear1 in options:
+        fear = input('What is your greatest Fear\n' + format(optionsList) + '\n')
+        if fear in options:
             break
         else:print('INVALID, ANSWER FROM THE OPTIONS')
 
 
 def game():
+    # User has Name, Location, and fear1
     User = createUser()
 
     print('Thank you for answering!\nwe know it might be unorthodox, but these questions...\nthey show us who you are.')
