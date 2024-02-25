@@ -2,31 +2,32 @@
 # Git commands to upload: git push
 # Git command to download most recent code: git pull
 
-
-
-
-#This Object is the user.
-class createUser():
-    #aquire users name and location
-    name = input('Please start off by telling us... what is your name ').strip().title()
-    location = input('Where are you from, ' + name + '? ')
-    print(location + '...')
-    print('Sounds lovely!')
-    #Aquire list of users fears.
-    options = ['Being alone', 'Dying with regret', 'Losing the people I love', 'Nothing']
-    optionsList = '\n'.join(options)
-    while(True):
-        fear = input('What is your greatest Fear\n' + format(optionsList) + '\n')
-        if fear in options:
-            break
-        else:print('INVALID, ANSWER FROM THE OPTIONS')
-
+from Act1 import Act1
+# This Object is the user.
+class CreateUser:
+    # Acquire users name and location
+    def __init__(self):
+        self.name = input('Please start off by telling us... what is your first name ').strip().title()
+        self.location = input('Where are you from, ' + self.name + '? ').strip().title()
+        print(self.location + '...')
+        print('Sounds lovely!')
+    # Acquire list of users fears.
+        self.options = ['- Being alone', '- Dying with regret', '- Losing the people I love', '- Nothing']
+        self.optionsList = '\n'.join(self.options)
+        while True:
+            fear = input('What is your greatest Fear\n' + format(self.optionsList) + '\n').strip().title()
+            if fear.lower() in [option.lower().lstrip('- ') for option in self.options]:
+                break
+            else:
+                print('INVALID, ANSWER FROM THE OPTIONS')
 
 def game():
-    # User has Name, Location, and fear1
-    User = createUser()
+    # User has Name, Location, and fear
+    User = CreateUser()
 
     print('Thank you for answering!\nwe know it might be unorthodox, but these questions...\nthey show us who you are.')
     print('\nPlease allow us up to three business days to get back to you,\nAnd thank you for applying at FINNCORP.')
-
+    print()
+    act1_instance = Act1()
+    act1_instance.start()
 game()
