@@ -11,7 +11,8 @@ class Act1:
         # Map
         self.act1_map = {
             'apartment': {
-                'Description': 'You wake up in your apartment, it is cold, lifeless, and YOU are somehow still tired.',
+                'Description': 'You wake up in your apartment, it is cold, lifeless, '
+                               '\nand YOU are somehow still tired.',
                 'Options': {'viewable_objects': 'View your room.',
                             'bathroom': 'Freshen up in the bathroom.'}
             },
@@ -19,12 +20,18 @@ class Act1:
                 'Description': 'As you look through your room, you see two items, a rent bill, and a paycheck.',
                 'Options': {'rent_bill': 'View your rent bill.',
                             'paycheck': 'View your recent paycheck.',
-                            'bathroom': 'Freshen up in the bathroom.'},
+                            'bathroom': 'Freshen up in the bathroom.'}
+            },
             'rent_bill': {
                 'Description': 'Things are getting really bad, I can barely afford to pay rent',
                 'Options': {'paycheck': 'View your recent paycheck.',
                             'bathroom': 'Freshen up in the bathroom'}
-            }
+            },
+            'paycheck': {
+                'Description': 'This last paycheck was barely enough to buy groceries, '
+                               '\nit may be time to beg for a raise...',
+                'Options': {'rent_bill': 'View your rent bill',
+                            'bathroom': 'Freshen up in the bathroom'}
             },
             'bathroom': {
                 'Description': 'As you walk towards the bathroom, the leak in the sink sings a sad song.',
@@ -35,6 +42,7 @@ class Act1:
 
     def start(self):
         print ("Act 1: Broke and Desperate")
+        print()
         while not self.completed:
             location_info = self.act1_map[self.current_location]
             print(location_info['Description'])
@@ -47,7 +55,8 @@ class Act1:
                 action = list(options.keys())[int(choice) - 1]
                 self.handle_action(action)
             else:
-                print ('Invalid choice. Please enter a valid number.')
+                print('Invalid choice. Please enter a valid number.')
+                print()
 
     def handle_action(self, action):
         if action in self.act1_map[self.current_location]['Options']:
@@ -56,8 +65,11 @@ class Act1:
                 self.current_location = 'viewable_objects'
             elif action == 'bathroom':
                 self.current_location = 'bathroom'
+            elif action in ['rent_bill','paycheck']:
+                self.current_location = action
             else:
                 print(self.act1_map[self.current_location]['Options'][action])
         else:
             print('Invalid action.')
         print()
+
