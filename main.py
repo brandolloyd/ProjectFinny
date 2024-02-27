@@ -1,6 +1,7 @@
 # This is the main code for Project Finny
 # Git commands to upload: git push
 # Git command to download most recent code: git pull
+# Git fetch or merge for other commands
 
 from Act1 import Act1
 # This Object is the user.
@@ -22,7 +23,7 @@ class CreateUser:
                 print('INVALID, ANSWER FROM THE OPTIONS')
 
 def game():
-    # User has Name, Location, and fear
+    # User has Name, Location, and fear Who
     User = CreateUser()
 
     print('Thank you for answering!\nwe know it might be unorthodox, but these questions...\nthey show us who you are.')
