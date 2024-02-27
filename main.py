@@ -22,7 +22,7 @@ class CreateUser:
                 print('INVALID, ANSWER FROM THE OPTIONS')
 
 def game():
-    # User has Name, Location, and fear
+    # User has Name, Location, and fear, all capitalized
     User = CreateUser()
 
     print('Thank you for answering!\nwe know it might be unorthodox, but these questions...\nthey show us who you are.')
