@@ -29,6 +29,6 @@ def game():
     print('Thank you for answering!\nwe know it might be unorthodox, but these questions...\nthey show us who you are.')
     print('\nPlease allow us up to three business days to get back to you,\nAnd thank you for applying at FINNCORP.')
     print()
-    act1_instance = Act1(User)
+    act1_instance = Act1()
     act1_instance.start()
 game()
