@@ -205,8 +205,7 @@ class Act1:
                 action = list(options.keys())[int(choice) - 1]
                 self.handle_action(action)
             else:
-                print('Invalid choice. Please enter a valid number.')
-                print()
+                print("Invalid choice. Please enter a valid number.\n")
 
     def handle_action(self, action):
         if action in self.act1_map[self.current_location]['Options']:
