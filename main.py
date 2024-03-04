@@ -7,6 +7,7 @@
 from Act1 import Act1   # Static beginning act, introduce world and situation
 from Act2 import Act2A  # Say yes to Finny
 from Act2 import Act2B  # Say no to Finny
+from Act3 import Act3
 
 # This Object is the user.
 class CreateUser:

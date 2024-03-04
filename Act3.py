@@ -61,6 +61,5 @@ class Act3:
                 print("Invalid choice. Please try again.\n")
 
 if __name__ == '__main__':
-    user_name = input("Enter your name: ")
-    act3 = Act3(user_name)
+    act3 = Act3()
     act3.start()
