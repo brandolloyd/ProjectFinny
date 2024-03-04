@@ -3,7 +3,11 @@
 # Git command to download most recent code: git pull
 # Git fetch or merge for other commands
 
-from Act1 import Act1
+# Import Acts, player choice will decide which act they get
+from Act1 import Act1   # Static beginning act, introduce world and situation
+from Act2 import Act2A  # Say yes to Finny
+from Act2 import Act2B  # Say no to Finny
+
 # This Object is the user.
 class CreateUser:
     # Acquire users name and location
@@ -24,11 +28,11 @@ class CreateUser:
 
 def game():
     # User has Name, Location, and fear
-    User = CreateUser()
+    user = CreateUser()
 
-    print('Thank you for answering!\nwe know it might be unorthodox, but these questions...\nthey show us who you are.')
+    print('Thank you for answering!')
     print('\nPlease allow us up to three business days to get back to you,\nAnd thank you for applying at FINNCORP.')
     print()
-    act1_instance = Act1()
+    act1_instance = Act1(user.name)
     act1_instance.start()
 game()

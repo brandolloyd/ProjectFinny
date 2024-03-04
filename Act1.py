@@ -1,8 +1,9 @@
 # Act 1 of Project Finny!
 class Act1:
-    def __init__(self):
+    def __init__(self, user_name):
+        self.user_name = user_name
         # Initialize player location
-        self.player_location = None
+        self.current_location = 'apartment'
         # Initialize player inventory
         self.player_inventory = []
         # Track if act is completed or not
@@ -36,12 +37,161 @@ class Act1:
             'bathroom': {
                 'Description': 'As you walk towards the bathroom, the leak in the sink sings a sad song.',
                 'Options': {'shower': 'Get ready for work.'}
+            },
+            'shower': {
+                'Description': 'You get ready for the workday, putting on your "FINNCORP" outfit '
+                               '\nand finally, you are ready exit your apartment',
+                'Options': {'Talk': 'Talk to the locals outside their apartments.',
+                            'leave': 'Walk to work.'} # Skip neighbors, head to work part
+            # Talking to neighbors portion, multiple different outcomes!
+
+            },
+            'Talk': {
+                'Description': 'Walking outside your apartment complex, you see your neighboring tenants,'
+                               '\nyou dont talk to them much, but they still smile at you when you walk'
+                               '\npast, maybe you should try talking?',
+                'Options': {'younger': 'Speak to the younger lady, she seems mad, but isn\'t'
+                                       '\neveryone these days?',
+                            'older': 'Speak to the older man, he seems to be more upbeat, wonder why?'}
+            },
+            'younger': {
+                'Description': 'As you walk up to the younger lady, she almost seems to'
+                               '\nignore you, before you clear your throat in front of her.'
+                               '\nLooks like its up to you to start the conversation...',
+                'Options': {'start': '"Hey there! How are you doing today?"',
+                            'leave': 'It\'s not worth it, i\'m going to work'} # Finish, head to work part
+            },
+            'start': {
+                'Description': 'She looks up from her phone and smiles at you, but still seems to'
+                               '\nbe mad... "Hi! I didn\'t see you there... you\'re '+self.user_name+', right?"',
+                'Options': {'talkmore': '"Yeah! Just wanted to say good morning! I\'m actually on '
+                                        '\nmy way to work right now, but good to see you!"',
+                            'talkmore2': '"Sorry about that, figured I\'d talk to my neighbors finally'
+                                         '\nI\'m usually in a rush to get to work every day"'}
+            },
+            'talkmore': {
+                'Description': 'That was awkward, why am I so weird around people',
+                'Options': {'older': 'Try talking to the older gentleman? Maybe that will go better',
+                            'leave': 'I\'ll try talking to my neighbors another day, I should head to work'} # Finish, head to work part
+            },
+            'talkmore2': {
+                'Description': '"That makes sense! Don\'t worry about it, I\'m the same way myself...'
+                               '\nso where do you work '+self.user_name+'?"',
+                'Options': {'iworkat': '"I work at FinnCorp! I\'m a customer service rep there."'}
+            },
+            'iworkat': {
+                'Description': '"Oh... you work there. Maybe you should go talk to my grandpa,'
+                               '\nyou and your friends have been taking his money for years.'
+                               '\npromising to install Finny into the apartment complex..."',
+                'Options': {'imsorry': '"I\'m sorry, if it was up to me, everyone would have Finny."',
+                            'notmyfault': '"I wouldn\'t say that\'s my fault... I just help people out'
+                                          '\nwith their questions and problems."'}
+            },
+            'imsorry': {
+                'Description': '"Well that\'s good to hear, sorry for lashing out, I have a strong hatred for'
+                               'FinnCorp, nothing against you though. I should get going, have a good one."',
+                'Options': {'older1': 'Maybe her grandpa might be a bit nicer',
+                            'leave': 'Nope, I\'m just gonna head to work'} # Finish, head to work part
+            },
+            'notmyfault': {
+                'Description': '"Wow, seems like you all have that view point today, it was'
+                               '\nhorrible talking to you, lets never do it again!"... she walks away.',
+                'Options': {'older1': 'Ouch... her grandpa seems to still be happy, maybe '
+                                      '\nI\'ll try being friendly with him',
+                            'leave': 'That\'s enough social talk for my week, to work I go.'}  # Finish, head to work part
+            },
+            'older': {
+                'Description': 'You walk up to the older gentleman. He smiles at you'
+                               '\nlike an old friend. "Hey there '+self.user_name+'!"',
+                'Options': {'olderTalk': '"Hi! How\'s your morning going so far sir?"',
+                            'olderTalk2': '"Hello! I\'m on my way to work right now but'
+                                          '\nhope you have a good one!"'}
+            },
+            'older1': {
+                'Description': 'I hope her grandpa is a little nicer... he speaks,'
+                               '\n"Hey there'+self.user_name+'!, how are you!"',
+                'Options': {'older1Talk': '"Not too bad! Just spoke with your niece...'
+                                          '\nshes so nice."',
+                            'older1Talk2': '"Pretty good! Headed to work myself, but just wanted'
+                                           '\nto say good morning!"'}
+            },
+            'older1Talk': {
+                'Description': '"Oh don\'t mind her, she\'s just a cranky teenager." He laughs as he says this.',
+                'Options': {'neighborly':   '"Yeah I understand, I figured I\'d take some time to talk to the'
+                                            '\nneighbors before I go to work though!"',
+                            'understand': '"I get it, FinnCorp hasn\'t exactly held up with their end of bargains"'}
+            },
+            'neighborly': {
+                'Description': '"Well, I\'m very glad you did! I\'ve been meaning to ask you something recently'
+                               '\nabout your job at FinnCorp!"',
+                'Options': {'ohno': '"Sure, go ahead!',
+                            'leave': 'Actually, speaking of that, I should probably get to work,'
+                                     '\nbut we can talk later!"'}
+            },
+            'understand': {
+                'Description': '"Well, actually, speaking of FinnCorp, I was wondering if I could ask you'
+                               '\na quick question while you\'re here!',
+                'Options': {'ohno': '"Sure, go right ahead"'}
+            },
+            'ohno': {
+                'Description': '"Well... I\'ve been on hold for one of those fancy "Finnies" for quite'
+                               '\nsome time, I have my heart condition, and my doctor says Finny helps to monitor'
+                               '\nit, I\'ve sent FinnCorp so much money all these years, and I was just wondering'
+                               '\nif maybe you could put in a good word for me!"... he lets out a sad chuckle.',
+                'Options': {'liar': '"Sure, I\'ll let them know about you for sure."',
+                            'honesty': '"I cant say for certain I can do anything, I am just a customer service rep."'}
+            },
+            'liar': {
+                'Description': 'He perks up instantly, "I am so glad to hear that. I owe you '+self.user_name+'!"',
+                'Options': {'leave': '"Don\'t worry about it... I should probably head to work, see you later"'
+                                     '\nThis is gonna weigh on my conscience all day...',}
+            },
+            'honesty': {
+                'Description': 'He instantly sulks, "Oh... I\'m sorry to have bothered you then,'
+                               'I trust FinnCorp with my money though, I know I\'ll get Finny soon enough!"',
+                'Options': {'leave': '"I\'m sorry to dissapoint, but yeah! I don\'t have Finny myself either...'
+                                     '\nI should probably get to work though, see you later!'}  # Finished, go to work
+            },
+            'older1Talk2': {
+                'Description': 'I\'m already tired of the whole family, I should just go.',
+                'Options': {'leave': 'Walk to work.'}  # Finish, head to work
+            },
+            'olderTalk': {
+                'Description': 'He responds "Not too bad! Don\'t worry about calling me Sir though,'
+                               '\nI\'m just the old man living in the apartment."',
+                'Options': {'benice': '"Well, it\'s great to officially meet! I\'ve been meaning'
+                                      '\n to stop by and say hello."',
+                            'leave': '"I\'m glad your day is going good! I should honestly head to work though,'
+                                      '\nsee you later!"'}  # Finished, head to work
+            },
+            'benice': {
+                'Description': '"I sit out here every day! It\'s nice to see your generation working so hard,'
+                               '\nmy niece over there doesn\'t do much of anything except go to school and complain,'
+                               '\ntypical teenagers..."',
+                'Options': {'benicer': '"Yeah, FinnCorp definitely keeps me busy!"... so the young lady is his niece?',
+                            'leave': '"Teenagers will be teenagers!, I should honestly get going to work anyways,'
+                                     '\nsee you later!"'}
+            },
+            'benicer': {
+                'Description': '"Now that you bring up FinnCorp, I\'ve been meaning to ask you something...'
+                               '\nif you don\'t mind',
+                'Options': {'ohno': 'A man on a mission, I respect that... "Sure, go ahead!"'}
+
+            },
+            'olderTalk2': {
+                'Description': 'Don\'t think I have the energy to talk to him today, maybe'
+                               '\nI could try talking to the younger girl again?',
+                'Options': {'younger': 'Walk up to the younger lady again, maybe I can do this.',
+                            'leave': 'Never mind, I should get to work anyways.'}  # Finish, head to work part
+            },
+            # WORK PART!
+            'leave': {
+                'Description': 'Neighborly talk is horrifying... time to head to work.'
             }
         }
-        self.current_location = 'apartment'
 
     def start(self):
-        print ("Act 1: Broke and Desperate")
+        print("Act 1: Broke and Desperate")
         print()
         while not self.completed:
             location_info = self.act1_map[self.current_location]
@@ -60,16 +210,15 @@ class Act1:
 
     def handle_action(self, action):
         if action in self.act1_map[self.current_location]['Options']:
-            print(f'You chose to {self.act1_map[self.current_location]['Options'][action]}')
+            print(f'You chose {self.act1_map[self.current_location]['Options'][action]}')
             if action == 'viewable_objects':
                 self.current_location = 'viewable_objects'
-            elif action == 'bathroom':
-                self.current_location = 'bathroom'
-            elif action in ['rent_bill','paycheck']:
-                self.current_location = action
             else:
-                print(self.act1_map[self.current_location]['Options'][action])
+                self.current_location = action
         else:
-            print('Invalid action.')
+            print('Invalid action. Please enter a valid action.\n')
         print()
 
+if __name__ == '__main__':
+    act1_game = Act1()
+    act1_game.start()
