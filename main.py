@@ -34,10 +34,11 @@ def game():
     print('Thank you for answering!')
     print('\nPlease allow us up to three business days to get back to you,\nAnd thank you for applying at FINNCORP.')
     print()
+    act1_instance = Act1(user.name)
+    act1_instance.start()
 
+    # After Act 1 completes, final choice
     act2_instance = Act2A(user.name)
     act2_instance.start()
 
-    #act1_instance = Act1(user.name)
-    #act1_instance.start()
 game()

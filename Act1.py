@@ -1,11 +1,14 @@
 # Act 1 of Project Finny!
+
+from Act2 import Act2A
+from Act2 import Act2B
+
+
 class Act1:
     def __init__(self, user_name):
         self.user_name = user_name
         # Initialize player location
         self.current_location = 'apartment'
-        # Initialize player inventory
-        self.player_inventory = []
         # Track if act is completed or not
         self.completed = False
 
@@ -42,8 +45,8 @@ class Act1:
                 'Description': 'You get ready for the workday, putting on your "FINNCORP" outfit '
                                '\nand finally, you are ready exit your apartment',
                 'Options': {'Talk': 'Talk to the locals outside their apartments.',
-                            'leave': 'Walk to work.'} # Skip neighbors, head to work part
-            # Talking to neighbors portion, multiple different outcomes!
+                            'leave': 'Walk to work.'}  # Skip neighbors, head to work part
+                # Talking to neighbors portion, multiple different outcomes!
 
             },
             'Talk': {
@@ -59,11 +62,11 @@ class Act1:
                                '\nignore you, before you clear your throat in front of her.'
                                '\nLooks like its up to you to start the conversation...',
                 'Options': {'start': '"Hey there! How are you doing today?"',
-                            'leave': 'It\'s not worth it, i\'m going to work'} # Finish, head to work part
+                            'leave': 'It\'s not worth it, i\'m going to work'}  # Finish, head to work part
             },
             'start': {
                 'Description': 'She looks up from her phone and smiles at you, but still seems to'
-                               '\nbe mad... "Hi! I didn\'t see you there... you\'re '+self.user_name+', right?"',
+                               '\nbe mad... "Hi! I didn\'t see you there... you\'re ' + self.user_name + ', right?"',
                 'Options': {'talkmore': '"Yeah! Just wanted to say good morning! I\'m actually on '
                                         '\nmy way to work right now, but good to see you!"',
                             'talkmore2': '"Sorry about that, figured I\'d talk to my neighbors finally'
@@ -72,11 +75,12 @@ class Act1:
             'talkmore': {
                 'Description': 'That was awkward, why am I so weird around people',
                 'Options': {'older': 'Try talking to the older gentleman? Maybe that will go better',
-                            'leave': 'I\'ll try talking to my neighbors another day, I should head to work'} # Finish, head to work part
+                            'leave': 'I\'ll try talking to my neighbors another day, I should head to work'}
+                # Finish, head to work part
             },
             'talkmore2': {
                 'Description': '"That makes sense! Don\'t worry about it, I\'m the same way myself...'
-                               '\nso where do you work '+self.user_name+'?"',
+                               '\nso where do you work ' + self.user_name + '?"',
                 'Options': {'iworkat': '"I work at FinnCorp! I\'m a customer service rep there."'}
             },
             'iworkat': {
@@ -91,25 +95,26 @@ class Act1:
                 'Description': '"Well that\'s good to hear, sorry for lashing out, I have a strong hatred for'
                                'FinnCorp, nothing against you though. I should get going, have a good one."',
                 'Options': {'older1': 'Maybe her grandpa might be a bit nicer',
-                            'leave': 'Nope, I\'m just gonna head to work'} # Finish, head to work part
+                            'leave': 'Nope, I\'m just gonna head to work'}  # Finish, head to work part
             },
             'notmyfault': {
                 'Description': '"Wow, seems like you all have that view point today, it was'
                                '\nhorrible talking to you, lets never do it again!"... she walks away.',
                 'Options': {'older1': 'Ouch... her grandpa seems to still be happy, maybe '
                                       '\nI\'ll try being friendly with him',
-                            'leave': 'That\'s enough social talk for my week, to work I go.'}  # Finish, head to work part
+                            'leave': 'That\'s enough social talk for my week, to work I go.'}
+                # Finish, head to work part
             },
             'older': {
                 'Description': 'You walk up to the older gentleman. He smiles at you'
-                               '\nlike an old friend. "Hey there '+self.user_name+'!"',
+                               '\nlike an old friend. "Hey there ' + self.user_name + '!"',
                 'Options': {'olderTalk': '"Hi! How\'s your morning going so far sir?"',
                             'olderTalk2': '"Hello! I\'m on my way to work right now but'
                                           '\nhope you have a good one!"'}
             },
             'older1': {
                 'Description': 'I hope her grandpa is a little nicer... he speaks,'
-                               '\n"Hey there'+self.user_name+'!, how are you!"',
+                               '\n"Hey there ' + self.user_name + '!, how are you!"',
                 'Options': {'older1Talk': '"Not too bad! Just spoke with your niece...'
                                           '\nshes so nice."',
                             'older1Talk2': '"Pretty good! Headed to work myself, but just wanted'
@@ -117,8 +122,8 @@ class Act1:
             },
             'older1Talk': {
                 'Description': '"Oh don\'t mind her, she\'s just a cranky teenager." He laughs as he says this.',
-                'Options': {'neighborly':   '"Yeah I understand, I figured I\'d take some time to talk to the'
-                                            '\nneighbors before I go to work though!"',
+                'Options': {'neighborly': '"Yeah I understand, I figured I\'d take some time to talk to the'
+                                          '\nneighbors before I go to work though!"',
                             'understand': '"I get it, FinnCorp hasn\'t exactly held up with their end of bargains"'}
             },
             'neighborly': {
@@ -142,14 +147,14 @@ class Act1:
                             'honesty': '"I cant say for certain I can do anything, I am just a customer service rep."'}
             },
             'liar': {
-                'Description': 'He perks up instantly, "I am so glad to hear that. I owe you '+self.user_name+'!"',
+                'Description': 'He perks up instantly, "I am so glad to hear that. I owe you ' + self.user_name + '!"',
                 'Options': {'leave': '"Don\'t worry about it... I should probably head to work, see you later"'
-                                     '\nThis is gonna weigh on my conscience all day...',}
+                                     '\nThis is gonna weigh on my conscience all day...', }
             },
             'honesty': {
                 'Description': 'He instantly sulks, "Oh... I\'m sorry to have bothered you then,'
                                'I trust FinnCorp with my money though, I know I\'ll get Finny soon enough!"',
-                'Options': {'leave': '"I\'m sorry to dissapoint, but yeah! I don\'t have Finny myself either...'
+                'Options': {'leave': '"I\'m sorry to disappoint, but yeah! I don\'t have Finny myself either...'
                                      '\nI should probably get to work though, see you later!'}  # Finished, go to work
             },
             'older1Talk2': {
@@ -162,7 +167,7 @@ class Act1:
                 'Options': {'benice': '"Well, it\'s great to officially meet! I\'ve been meaning'
                                       '\n to stop by and say hello."',
                             'leave': '"I\'m glad your day is going good! I should honestly head to work though,'
-                                      '\nsee you later!"'}  # Finished, head to work
+                                     '\nsee you later!"'}  # Finished, head to work
             },
             'benice': {
                 'Description': '"I sit out here every day! It\'s nice to see your generation working so hard,'
@@ -186,9 +191,163 @@ class Act1:
             },
             # WORK PART!
             'leave': {
-                'Description': 'Neighborly talk is horrifying... time to head to work.'
+                'Description': 'Neighborly talk is horrifying... time to head to work.',
+                'Options': {'work': 'Walk to FinnCorp'}
+            },
+            'work': {
+                'Description': 'As you walk up to the FinnCorp building, you see an unusual'
+                               '\namount of security outside, they approach you, and ask to see'
+                               '\nyour work ID, unusual...',
+                'Options': {'inside': 'Head inside the building'}
+            },
+            'inside': {
+                'Description': 'FinnCorp does not cheap out on design... Finn Daemon had '
+                               '\na vision, that vision being black and red, everywhere.',
+                'Options': {'shannon': 'Talk to Shannon, the receptionist',
+                            'elevator': 'Enter the elevator to your office, no more social talk today.'}
+            },
+            'shannon': {
+                'Description': 'Shannon knows everything that goes on in this building,'
+                               '\nshe reports to Finn Daemon himself...',
+                'Options': {'shannon1': '"How are you today Shannon?"',
+                            'shannon2': '"Hey Shannon, any idea what\'s going on outside?'}
+            },
+            'shannon1': {
+                'Description': 'Shannon looks up at you with annoyance, "How am I?, I have'
+                               '\nsecurity running around outside, and a busy day, I don\'t'
+                               '\nneed to answer that."',
+                'Options': {'elevator': 'Oh my. "Okay, sorry to bother you, hope your day gets better"', }
+            },
+            'shannon2': {
+                'Description': 'Shannon looks up at you with disgust, "That isn\'t your concern in the slightest'
+                               '\nget to work already ' + self.user_name + '"',
+                'Options': {'elevator1': 'Why do I talk to people... guess I\'ll listen and go to work.'}
+            },
+            'elevator': {
+                'Description': 'You get in the elevator and hit your floor number, ready to sit down'
+                               '\nand do your job. Alone. Thank God. The door opens to your floor.',
+                'Options': {'timeforwork': 'Exit the elevator and walk to your desk.'}
+            },
+            'elevator1': {
+                'Description': 'As you walk away, she mutters "I can\'t believe they get Finny, of all people..."'
+                               '\nWhat does that mean? Guess I\'ll figure out soon enough, time for work.'
+                               '\nYou get into the elevator, and hit your floor number, ready to work.',
+                'Options': {'timeforwork': 'Exit the elevator and walk to your desk.'}
+            },
+            'timeforwork': {
+                'Description': 'When you walk into your office area, you notice all the other desks are empty...'
+                               '\nno one seems to be around.',
+                'Options': {'desk': 'Go to your desk.',
+                            'manageroffice': 'Go to your manager, Victoria Serpens, office.'}
+            },
+            'desk': {
+                'Description': 'At your desk, you see your usual setup, a basic computer, a coffee stained desk'
+                               '\nand your phone, used to communicate with customers. But among these items, you'
+                               '\nsee a new item, an envelope with "' + self.user_name + '" on it.',
+                'Options': {'envelope': 'Open the envelope.',
+                            'manageroffice': 'Ignore the envelope and go to your managers office.'}
+            },
+            'manageroffice': {
+                'Description': 'You knock on Victoria\'s office door, no one responds, but you are curious.',
+                'Options': {'entertheoffice': 'Curiosity gets the best of you, enter the office.',
+                            'desk': 'Whatever, maybe she\'s in a conference call, go back to your desk.'}
+            },
+            'envelope': {
+                'Description': 'You open the envelope, expecting junk mail, but are shocked by the message inside'
+                               '\n'
+                               '\nSAY NO'
+                               '\n'
+                               '\nWhat does this mean... say no to what?'
+                               '\nAfter reading this, you hear chatter in the meeting room.',
+                'Options': {'meetingroom1': 'Enter the meeting room, it seems your coworkers are all inside'}
+            },
+            'entertheoffice': {
+                'Description': 'Entering the office, you close the door, and find it empty'
+                               '\nno Victoria, but there is an open laptop on her desk...',
+                'Options': {'laptop': 'You\'re already in here, might as well snoop, look at the laptop.',
+                            'desk': 'Nope, not worth it, go back to your desk'}
+            },
+            'laptop': {
+                'Description': 'Looking at the laptop, you see her email is open, the email displayed says'
+                               '\n'
+                               '\n"Today is a hard day for all of us here at FinnCorp, but regardless, the'
+                               '\nquestion must still be asked. Managers, continue with the original plan."'
+                               '\n'
+                               '\nHard day? What does that mean... and what question?'
+                               '\n'
+                               '\nSuddenly, you hear footsteps coming your way',
+                'Options': {'oshit': 'Close the laptop and try to not look suspicious.',
+                            'oshit2': 'Leave the laptop open, and move towards the front of the office.'}
+            },
+            'oshit': {
+                'Description': 'Victoria opens the door, looks at you, and looks at her laptop, closed...'
+                               '\nIt was open when you entered.'
+                               '\n"What are you doing ' + self.user_name + '.'
+                                                                           '\nShe looks mad.',
+                'Options': {'madexcuses': '"I just got here, noticed the office was empty and wanted to see'
+                                          '\nif you were around."'}
+            },
+            'oshit2': {
+                'Description': 'Victoria opens the door, notices her laptop untouched, and you standing still,'
+                               '\nclose to the door'
+                               '\n"Hey ' + self.user_name + ' what are you doing in here?'
+                                                            '\nShe doesn\'t seem to know you were snooping.',
+                'Options': {'goodexcuses': '"Hey Victoria! I just got here, I noticed the office was'
+                                           '\nempty, and just wanted to see if you were around at least."'},
+            },
+            'madexcuses': {
+                'Description': 'Victoria looks you up and down.'
+                               '\n"Mmmhmmm... get to the meeting room, we have important things to discuss.',
+                'Options': {'meetingroom2': 'Don\'t makes things worse. Follow Victoria to the meeting room.'}
+            },
+            'goodexcuses': {
+                'Description': 'Victoria smiles.'
+                               '\n"Were all in the meeting room ' + self.user_name + ', exciting things to discuss,'
+                                                                                     '\nFollow me!',
+                'Options': {'meetingroom3': 'That went better than I thought it would.'
+                                            '\nFollow Victoria into the meeting room.'}
+            },
+            'meetingroom1': {
+                'Description': 'Guess I was late to the party, everyone is in the meeting room, what for?',
+                'Options': {'takeaseat1': 'Take a seat amongst your coworkers.'}
+            },
+            'meetingroom2': {
+                'Description': 'Victoria is mad, she knows I was snooping, why did I shut the laptop...'
+                               '\nArriving at the meeting room, she opens the door and points inside.'
+                               '\nNot another word said.',
+                'Options': {'takeaseat2': 'Quickly get to a chair, no more snooping ever again.'}
+            },
+            'meetingroom3': {
+                'Description': 'Victoria didn\'t seem to notice my snooping, thank God.'
+                               '\nWe enter the break room and she heads up to the front, smiling at'
+                               '\neveryone as she walks.',
+                'Options': {'takeaseat3': 'Sit down near the front, no use looking suspicious in the back.'}
+            },
+            # Meeting room part
+            'takeaseat1': {
+                'Description': ''
+            },
+            'takeaseat2': {
+                'Description': ''
+            },
+            'takeaseat3': {
+                'Description': ''
             }
         }
+
+        def final_choice(self):
+            print('Final Choice: ')
+            print('A. Accept Finny into your home.')
+            print('B. Reject Finny.')
+            choice = input('Enter your choice (A/B): ').strip().upper()
+
+            if choice == "A":
+                return Act2A(self.user_name)
+            elif choice == "B":
+                return Act2B(self.user_name)
+            else:
+                print('Invalid Choice. Choose wisely.')
+                return self.final_choice()
 
     def start(self):
         print("Act 1: Broke and Desperate")
@@ -198,7 +357,7 @@ class Act1:
             print(location_info['Description'])
             options = location_info['Options']
             print('What do you want to do?')
-            for number, (action,description) in enumerate(options.items(), start=1):
+            for number, (action, description) in enumerate(options.items(), start=1):
                 print(f"{number}. {description}")
             choice = input("Enter the number of your choice: ")
             if choice.isdigit() and 1 <= int(choice) <= len(options):
@@ -217,6 +376,7 @@ class Act1:
         else:
             print('Invalid action. Please enter a valid action.\n')
         print()
+
 
 if __name__ == '__main__':
     act1_game = Act1()

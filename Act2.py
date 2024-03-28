@@ -69,9 +69,8 @@ if __name__ == '__main__':
     act2a.start()
 
 class Act2B:
-    def __init__(self):
-        self.current_location = None
-        self.player_inventory = []
+    def __init__(self, user_name):
+        self.user_name = user_name
         self.completed = False
 
 
