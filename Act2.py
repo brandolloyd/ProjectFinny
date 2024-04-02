@@ -1,7 +1,10 @@
 # Act 2 of ProjectFinny.
 class Act2A:
-    def __init__(self, user_name):
-        self.user_name = user_name
+
+    def __init__(self, user):
+        self.user_name = user.name
+        self.progress = user.progress
+        self.user = user
         self.current_location = 'start'
         self.act2a_map = {
             'start': {
@@ -43,6 +46,7 @@ class Act2A:
             'end': {
                 'Description': "You decide to get some rest, contemplating the day's events and Finny's place in your home.",
                 'Options': {}
+
             }
         }
 
@@ -63,14 +67,9 @@ class Act2A:
             else:
                 print('Invalid choice. Please enter a valid number.\n')
 
-if __name__ == '__main__':
-    user_name = input("Enter your name: ")
-    act2a = Act2A(user_name)
-    act2a.start()
+        self.progress = 2.1
 
-class Act2B:
-    def __init__(self, user_name):
-        self.user_name = user_name
-        self.completed = False
+
+
 
 
