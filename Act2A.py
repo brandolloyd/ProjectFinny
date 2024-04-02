@@ -68,6 +68,7 @@ class Act2A:
                 print('Invalid choice. Please enter a valid number.\n')
 
         self.progress = 2.1
+        return self.user
 
 
 

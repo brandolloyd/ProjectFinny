@@ -5,8 +5,9 @@
 
 class Act1:
     def __init__(self, user):
+        self.user = user
         self.progress = user.progress
-        self.user_name = user.name
+        self.name = user.name
         # Initialize player location
         self.current_location = 'apartment'
         # Track if act is completed or not
@@ -66,7 +67,7 @@ class Act1:
             },
             'start': {
                 'Description': 'She looks up from her phone and smiles at you, but still seems to'
-                               '\nbe mad... "Hi! I didn\'t see you there... you\'re ' + self.user_name + ', right?"',
+                               '\nbe mad... "Hi! I didn\'t see you there... you\'re ' + self.name + ', right?"',
                 'Options': {'talkmore': '"Yeah! Just wanted to say good morning! I\'m actually on '
                                         '\nmy way to work right now, but good to see you!"',
                             'talkmore2': '"Sorry about that, figured I\'d talk to my neighbors finally'
@@ -80,7 +81,7 @@ class Act1:
             },
             'talkmore2': {
                 'Description': '"That makes sense! Don\'t worry about it, I\'m the same way myself...'
-                               '\nso where do you work ' + self.user_name + '?"',
+                               '\nso where do you work ' + self.name + '?"',
                 'Options': {'iworkat': '"I work at FinnCorp! I\'m a customer service rep there."'}
             },
             'iworkat': {
@@ -107,14 +108,14 @@ class Act1:
             },
             'older': {
                 'Description': 'You walk up to the older gentleman. He smiles at you'
-                               '\nlike an old friend. "Hey there ' + self.user_name + '!"',
+                               '\nlike an old friend. "Hey there ' + self.name + '!"',
                 'Options': {'olderTalk': '"Hi! How\'s your morning going so far sir?"',
                             'olderTalk2': '"Hello! I\'m on my way to work right now but'
                                           '\nhope you have a good one!"'}
             },
             'older1': {
                 'Description': 'I hope her grandpa is a little nicer... he speaks,'
-                               '\n"Hey there ' + self.user_name + '!, how are you!"',
+                               '\n"Hey there ' + self.name + '!, how are you!"',
                 'Options': {'older1Talk': '"Not too bad! Just spoke with your niece...'
                                           '\nshes so nice."',
                             'older1Talk2': '"Pretty good! Headed to work myself, but just wanted'
@@ -147,7 +148,7 @@ class Act1:
                             'honesty': '"I cant say for certain I can do anything, I am just a customer service rep."'}
             },
             'liar': {
-                'Description': 'He perks up instantly, "I am so glad to hear that. I owe you ' + self.user_name + '!"',
+                'Description': 'He perks up instantly, "I am so glad to hear that. I owe you ' + self.name + '!"',
                 'Options': {'leave': '"Don\'t worry about it... I should probably head to work, see you later"'
                                      '\nThis is gonna weigh on my conscience all day...', }
             },
@@ -220,7 +221,7 @@ class Act1:
             },
             'shannon2': {
                 'Description': 'Shannon looks up at you with disgust, "That isn\'t your concern in the slightest'
-                               '\nget to work already ' + self.user_name + '"',
+                               '\nget to work already ' + self.name + '"',
                 'Options': {'elevator1': 'Why do I talk to people... guess I\'ll listen and go to work.'}
             },
             'elevator': {
@@ -243,7 +244,7 @@ class Act1:
             'desk': {
                 'Description': 'At your desk, you see your usual setup, a basic computer, a coffee stained desk'
                                '\nand your phone, used to communicate with customers. But among these items, you'
-                               '\nsee a new item, an envelope with "' + self.user_name + '" on it.',
+                               '\nsee a new item, an envelope with "' + self.name + '" on it.',
                 'Options': {'envelope': 'Open the envelope.',
                             'manageroffice': 'Ignore the envelope and go to your managers office.'}
             },
@@ -282,7 +283,7 @@ class Act1:
             'oshit': {
                 'Description': 'Victoria opens the door, looks at you, and looks at her laptop, closed...'
                                '\nIt was open when you entered.'
-                               '\n"What are you doing ' + self.user_name + '.'
+                               '\n"What are you doing ' + self.name + '.'
                                                                            '\nShe looks mad.',
                 'Options': {'madexcuses': '"I just got here, noticed the office was empty and wanted to see'
                                           '\nif you were around."'}
@@ -290,7 +291,7 @@ class Act1:
             'oshit2': {
                 'Description': 'Victoria opens the door, notices her laptop untouched, and you standing still,'
                                '\nclose to the door'
-                               '\n"Hey ' + self.user_name + ' what are you doing in here?'
+                               '\n"Hey ' + self.name + ' what are you doing in here?'
                                                             '\nShe doesn\'t seem to know you were snooping.',
                 'Options': {'goodexcuses': '"Hey Victoria! I just got here, I noticed the office was'
                                            '\nempty, and just wanted to see if you were around at least."'},
@@ -302,7 +303,7 @@ class Act1:
             },
             'goodexcuses': {
                 'Description': 'Victoria smiles.'
-                               '\n"Were all in the meeting room ' + self.user_name + ', exciting things to discuss,'
+                               '\n"Were all in the meeting room ' + self.name + ', exciting things to discuss,'
                                                                                      '\nFollow me!',
                 'Options': {'meetingroom3': 'That went better than I thought it would.'
                                             '\nFollow Victoria into the meeting room.'}
@@ -346,7 +347,7 @@ class Act1:
                 'Description': 'That was a close one. Victoria walks to the front, almost excitedly,'
                                '\nand prepares for her presentation.',
                 'Options': {'waitaround': 'Wait for the presentation to start.',
-                            'askaround3': 'Ted calls for you, "Hey '+self.user_name+' do you know what'
+                            'askaround3': 'Ted calls for you, "Hey ' + self.name + ' do you know what'
                                                                                     '\nthis meeting is about?"'}
             },
             'waitaround': {
@@ -370,6 +371,22 @@ class Act1:
                 'Description': 'finished.'
             }
         }
+    def final_choice(self):
+        print('Final Choice: ')
+        print('A. Accept Finny into your home.')
+        print('B. Reject Finny.')
+        choice = input('Enter your choice (A/B): ').strip().upper()
+
+        if choice == "A":
+            self.progress = 1.1
+            return
+        elif choice == "B":
+            self.progress = 1.2
+            return
+
+        else:
+            print('Invalid Choice. Choose wisely.')
+            return self.user
 
     def start(self):
         print("Act 1: Broke and Desperate")
@@ -377,6 +394,7 @@ class Act1:
         while not self.completed:
             location_info = self.act1_map[self.current_location]
             print(location_info['Description'])
+
             options = location_info['Options']
             print('What do you want to do?')
             for number, (action, description) in enumerate(options.items(), start=1):
@@ -384,41 +402,22 @@ class Act1:
             choice = input("Enter the number of your choice: ")
             if choice.isdigit() and 1 <= int(choice) <= len(options):
                 action = list(options.keys())[int(choice) - 1]
+                # This is Going to take you to act2A
+                if(action == 'finishA'):
+                    self.progress = 1.1
+                    return self.user
+                #This is Going to take you to act2B
+                if (action == 'finishB'):
+                    self.progress = 1.2
+                    return self.user
                 self.handle_action(action)
             else:
                 print("Invalid choice. Please enter a valid number.\n")
-            if options == 'finished':
-                self.completed = True
-
-        final
-
-        def final_choice(self):
-            print('Final Choice: ')
-            print('A. Accept Finny into your home.')
-            print('B. Reject Finny.')
-            choice = input('Enter your choice (A/B): ').strip().upper()
-
-            if choice == "A":
-                self.progress = 1.1
-                return
-            elif choice == "B":
-                self.progress = 1.2
-                return
-
-            else:
-                print('Invalid Choice. Choose wisely.')
-                return self.user
-
-
-
-
-
-
-
 
     def handle_action(self, action):
         if action in self.act1_map[self.current_location]['Options']:
             print(f'You chose {self.act1_map[self.current_location]['Options'][action]}')
+
             if action == 'viewable_objects':
                 self.current_location = 'viewable_objects'
             else:
