@@ -1,11 +1,12 @@
 # Act 1 of Project Finny!
 
-from Act2 import Act2A
+
 
 
 class Act1:
-    def __init__(self, user_name):
-        self.user_name = user_name
+    def __init__(self, user):
+        self.progress = user.progress
+        self.user_name = user.name
         # Initialize player location
         self.current_location = 'apartment'
         # Track if act is completed or not
@@ -352,37 +353,23 @@ class Act1:
                 'Description': 'Victoria clears her throat after a short duration, and gathers everyone\'s attention'
                                '\n"I\'m sure your\'e all wondering why I called you in to this random meeting...'
                                '\nRest assured, this is good news!',
-                'Options': {}
+                'Options': {'askaround1': 'Ted, your work "friend" sits next to you, ask him '
+                                          '\nwhat the meeting is about.'}
             },
             'askaround1': {
-                'Description': '"I have no clue my friend, Victoria told us all last minute, my question is'
-                               '\nwhat is all the security about?" He says.',
-                'Options': {'tedresponse1': '"Honestly, who knows. Things have been so chaotic lately."'}
+                'Description': 'test',
+                'Options': {'finish': 'test finish the game'}
             },
             'askaround2': {
-                'Description': '"Victoria just mentioned it was important, something \'game changing\', '
-                               'whatever that means... why were you late?" He says.',
-                'Options': {'tedresponse2': '"Game changing... huh" I just got confused, the office was'
-                                            '\nempty when I got here."'}
+                'Description': ''
             },
             'askaround3': {
                 'Description': ''
+            },
+            'finish': {
+                'Description': 'finished.'
             }
         }
-
-        def final_choice(self):
-            print('Final Choice: ')
-            print('A. Accept Finny into your home.')
-            print('B. Reject Finny.')
-            choice = input('Enter your choice (A/B): ').strip().upper()
-
-            if choice == "A":
-                return Act2A(self.user_name)
-            elif choice == "B":
-                return Act2B(self.user_name)
-            else:
-                print('Invalid Choice. Choose wisely.')
-                return self.final_choice()
 
     def start(self):
         print("Act 1: Broke and Desperate")
@@ -400,6 +387,34 @@ class Act1:
                 self.handle_action(action)
             else:
                 print("Invalid choice. Please enter a valid number.\n")
+            if options == 'finished':
+                self.completed = True
+
+        final
+
+        def final_choice(self):
+            print('Final Choice: ')
+            print('A. Accept Finny into your home.')
+            print('B. Reject Finny.')
+            choice = input('Enter your choice (A/B): ').strip().upper()
+
+            if choice == "A":
+                self.progress = 1.1
+                return
+            elif choice == "B":
+                self.progress = 1.2
+                return
+
+            else:
+                print('Invalid Choice. Choose wisely.')
+                return self.user
+
+
+
+
+
+
+
 
     def handle_action(self, action):
         if action in self.act1_map[self.current_location]['Options']:
@@ -413,6 +428,5 @@ class Act1:
         print()
 
 
-if __name__ == '__main__':
-    act1_game = Act1()
-    act1_game.start()
+
+

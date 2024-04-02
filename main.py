@@ -6,13 +6,14 @@
 # Import Acts, player choice will decide which act they get
 from Act1 import Act1   # Static beginning act, introduce world and situation
 from Act2 import Act2A  # Say yes to Finny
-from Act2 import Act2B  # Say no to Finny
+#from Act2 import Act2B  # Say no to Finny
 from Act3 import Act3
 
 # This Object is the user.
 class CreateUser:
     # Acquire users name and location
     def __init__(self):
+        self.progress = 0
         self.name = input('Please start off by telling us... what is your first name ').strip().title()
         self.location = input('Where are you from, ' + self.name + '? ').strip().title()
         print(self.location + '...')
@@ -34,11 +35,19 @@ def game():
     print('Thank you for answering!')
     print('\nPlease allow us up to three business days to get back to you,\nAnd thank you for applying at FINNCORP.')
     print()
-    act1_instance = Act1(user.name)
-    act1_instance.start()
+    if user.progress == 0:
+        user = Act1(user)
+        user.start()
+        print(user.progress)
 
     # After Act 1 completes, final choice
-    act2_instance = Act2A(user.name)
-    act2_instance.start()
+    if user.progress == 1.1:
+        user = Act2A(user)
+        user.start()
+        print(user.progress)
+    if user.progress == 1.2:
+        user = Act2A(user)
+        user.start()
+        print(user.progress)
 
 game()
