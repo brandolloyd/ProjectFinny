@@ -309,28 +309,59 @@ class Act1:
             },
             'meetingroom1': {
                 'Description': 'Guess I was late to the party, everyone is in the meeting room, what for?',
-                'Options': {'takeaseat1': 'Take a seat amongst your coworkers.'}
+                'Options': {'takeaseat1': 'Take a seat amongst your coworkers.',
+                            'manageroffice': 'Stop by Victoria\'s office.'}
             },
             'meetingroom2': {
                 'Description': 'Victoria is mad, she knows I was snooping, why did I shut the laptop...'
                                '\nArriving at the meeting room, she opens the door and points inside.'
                                '\nNot another word said.',
-                'Options': {'takeaseat2': 'Quickly get to a chair, no more snooping ever again.'}
+                'Options': {'takeaseat2': 'Quickly get to a chair, no more snooping ever again.',
+                            'desk': 'Stop by your desk, did you see a letter for you on it?'}
             },
             'meetingroom3': {
                 'Description': 'Victoria didn\'t seem to notice my snooping, thank God.'
                                '\nWe enter the break room and she heads up to the front, smiling at'
                                '\neveryone as she walks.',
-                'Options': {'takeaseat3': 'Sit down near the front, no use looking suspicious in the back.'}
+                'Options': {'takeaseat3': 'Sit down near the front, no use looking suspicious in the back.',
+                            'desk': 'Stop by your desk, did you forget anything?'}
             },
             # Meeting room part
             'takeaseat1': {
-                'Description': ''
+                'Description': 'Taking a seat, you see Victoria at the front, stressed, but ready to give'
+                               '\nanother boring presentation.',
+                'Options': {'waitaround': 'Wait for the presentation to start',
+                            'askaround1': 'Ted, your work "friend" sits next to you, ask him '
+                                          '\nwhat the meeting is about.'}
             },
             'takeaseat2': {
-                'Description': ''
+                'Description': 'Victoria is clearly mad, this won\'t look too good on your yearly review.'
+                               '\nShe walks up to the front, grabs her papers, and prepares for her presentation.',
+                'Options': {'waitaround': 'Wait for the presentation to start.',
+                            'askaround2': 'Ted, your work "friend" smirks at you... '
+                                          '\n"Someone\'s in trouble..." he says'
+                                          '"\nYeah don\'t ask, what is this meeting even about?"'}
             },
             'takeaseat3': {
+                'Description': 'That was a close one. Victoria walks to the front, almost excitedly,'
+                               '\nand prepares for her presentation.',
+                'Options': {'waitaround': 'Wait for the presentation to start.',
+                            'askaround3': 'Ted calls for you, "Hey '+self.user_name+' do you know what'
+                                                                                    '\nthis meeting is about?"'}
+            },
+            'waitaround': {
+                'Description': 'Victoria clears her throat after a short duration, and gathers everyone\'s attention'
+                               '\n"I\'m sure your\'e all wondering why I called you in to this random meeting...'
+                               '\nRest assured, this is good news!',
+                'Options': {}
+            },
+            'askaround1': {
+                'Description': ''
+            },
+            'askaround2': {
+                'Description': ''
+            },
+            'askaround3': {
                 'Description': ''
             }
         }
