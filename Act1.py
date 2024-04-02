@@ -1,7 +1,6 @@
 # Act 1 of Project Finny!
 
 from Act2 import Act2A
-from Act2 import Act2B
 
 
 class Act1:
@@ -356,10 +355,15 @@ class Act1:
                 'Options': {}
             },
             'askaround1': {
-                'Description': ''
+                'Description': '"I have no clue my friend, Victoria told us all last minute, my question is'
+                               '\nwhat is all the security about?" He says.',
+                'Options': {'tedresponse1': '"Honestly, who knows. Things have been so chaotic lately."'}
             },
             'askaround2': {
-                'Description': ''
+                'Description': '"Victoria just mentioned it was important, something \'game changing\', '
+                               'whatever that means... why were you late?" He says.',
+                'Options': {'tedresponse2': '"Game changing... huh" I just got confused, the office was'
+                                            '\nempty when I got here."'}
             },
             'askaround3': {
                 'Description': ''
