@@ -1,8 +1,6 @@
 # Act 1 of Project Finny!
 
 
-
-
 class Act1:
     def __init__(self, user):
         self.user = user
@@ -260,7 +258,8 @@ class Act1:
                                '\n'
                                '\nWhat does this mean... say no to what?'
                                '\nAfter reading this, you hear chatter in the meeting room.',
-                'Options': {'meetingroom1': 'Enter the meeting room, it seems your coworkers are all inside'}
+                'Options': {'meetingroom1': 'Enter the meeting room, it seems your coworkers are all inside',
+                            'manageroffice': 'Is this a joke? Maybe Victoria knows something, go to her office.'}
             },
             'entertheoffice': {
                 'Description': 'Entering the office, you close the door, and find it empty'
@@ -284,7 +283,7 @@ class Act1:
                 'Description': 'Victoria opens the door, looks at you, and looks at her laptop, closed...'
                                '\nIt was open when you entered.'
                                '\n"What are you doing ' + self.name + '.'
-                                                                           '\nShe looks mad.',
+                                                                      '\nShe looks mad.',
                 'Options': {'madexcuses': '"I just got here, noticed the office was empty and wanted to see'
                                           '\nif you were around."'}
             },
@@ -292,7 +291,7 @@ class Act1:
                 'Description': 'Victoria opens the door, notices her laptop untouched, and you standing still,'
                                '\nclose to the door'
                                '\n"Hey ' + self.name + ' what are you doing in here?'
-                                                            '\nShe doesn\'t seem to know you were snooping.',
+                                                       '\nShe doesn\'t seem to know you were snooping.',
                 'Options': {'goodexcuses': '"Hey Victoria! I just got here, I noticed the office was'
                                            '\nempty, and just wanted to see if you were around at least."'},
             },
@@ -304,14 +303,13 @@ class Act1:
             'goodexcuses': {
                 'Description': 'Victoria smiles.'
                                '\n"Were all in the meeting room ' + self.name + ', exciting things to discuss,'
-                                                                                     '\nFollow me!',
+                                                                                '\nFollow me!',
                 'Options': {'meetingroom3': 'That went better than I thought it would.'
                                             '\nFollow Victoria into the meeting room.'}
             },
             'meetingroom1': {
                 'Description': 'Guess I was late to the party, everyone is in the meeting room, what for?',
-                'Options': {'takeaseat1': 'Take a seat amongst your coworkers.',
-                            'manageroffice': 'Stop by Victoria\'s office.'}
+                'Options': {'takeaseat1': 'Take a seat amongst your coworkers.'}
             },
             'meetingroom2': {
                 'Description': 'Victoria is mad, she knows I was snooping, why did I shut the laptop...'
@@ -337,7 +335,9 @@ class Act1:
             },
             'takeaseat2': {
                 'Description': 'Victoria is clearly mad, this won\'t look too good on your yearly review.'
-                               '\nShe walks up to the front, grabs her papers, and prepares for her presentation.',
+                               '\nShe walks up to the front, grabs her papers, and prepares for her presentation.'
+                               '\n'
+                               '\nTed, your work "friend"',
                 'Options': {'waitaround': 'Wait for the presentation to start.',
                             'askaround2': 'Ted, your work "friend" smirks at you... '
                                           '\n"Someone\'s in trouble..." he says'
@@ -348,29 +348,173 @@ class Act1:
                                '\nand prepares for her presentation.',
                 'Options': {'waitaround': 'Wait for the presentation to start.',
                             'askaround3': 'Ted calls for you, "Hey ' + self.name + ' do you know what'
-                                                                                    '\nthis meeting is about?"'}
+                                                                                   '\nthis meeting is about?"'}
             },
             'waitaround': {
                 'Description': 'Victoria clears her throat after a short duration, and gathers everyone\'s attention'
                                '\n"I\'m sure your\'e all wondering why I called you in to this random meeting...'
                                '\nRest assured, this is good news!',
-                'Options': {'askaround1': 'Ted, your work "friend" sits next to you, ask him '
-                                          '\nwhat the meeting is about.'}
+                'Options': {'okaystart': 'Keep listening, she looks... excited?'}
             },
             'askaround1': {
-                'Description': 'test',
-                'Options': {'finish': 'test finish the game'}
+                'Description': '"Yeah I have no clue, Victoria told us all to go into the meeting room...'
+                               '\nsomething important I guess, do you know anything?"',
+                'Options': {'askaround1response': '"Nothing, I just barely got here, things seem a bit chaotic, '
+                                                  '\ndid you see all the security outside?"',
+                            'waitaround': '"I don\'t know anything, I guess I was a bit late.'
+                                          '\nMight as well wait and see."'}
+            },
+            'askaround1response': {
+                'Description': '"Saw it. I tried asking, they just told me to \'Keep going\'.'
+                               '\nWhatever is happening today must be important."',
+                'Options': {'waitaround': '"I guess we\'ll see. Victoria looks like she\'s about to start"'}
             },
             'askaround2': {
-                'Description': ''
+                'Description': 'He responds, "Nothing, all I know is she was very excited, more than normal."',
+                'Options': {'askaround2response': '"There was so much security outside, whatever is happening'
+                                                  '\nmust be important."',
+                            'waitaround': '"No point in guessing, it looks like she\'s about to start anyways."'}
+            },
+            'askaround2response': {
+                'Description': 'Ted responds "Clearly, I overheard her practicing her speech, all I heard was'
+                               '\nsomething about Finny, nothing special I guess."',
+                'Options': {'waitaround': '"Oh great, another boring Finny meeting... '
+                                          '\nlooks like shes about to start anyways."'}
             },
             'askaround3': {
-                'Description': ''
+                'Description': 'He looks at you with curiosity, unsure of what is happening.',
+                'Options': {'askaround3response': '"No clue... I wasn\'t even aware of the meeting.'
+                                                  '\nAll the security outside is weird though"',
+                            'waitaround': '"No clue Ted. It looks like Victoria is about to start.'}
             },
-            'finish': {
-                'Description': 'finished.'
+            'askaround3response': {
+                'Description': 'He responds, "I did overhear her talking about Finny on a call, maybe'
+                               '\nit\'s just another boring Finny meeting."',
+                'Options': {'waitaround': '"Great, hopefully it doesn\'t take too long, '
+                                          '\nlooks like she\'s about to start anyways."'}
+            },
+            'okaystart': {
+                'Description': 'She continues, "You have all been working so hard, making sure all of our customers'
+                               '\nare well taken care of, being the first to help troubleshoot and help out with'
+                               '\nFinny, and the many issues that arise with it.',
+                'Options': {'girlkeepgoing': 'Another boring meeting. Continue listening.'}
+            },
+            'girlkeepgoing': {
+                'Description': 'Which brings me to today\'s revolutionary announcement... let me introduce you all, to'
+                               '\nFinny... Finny 2.0!'
+                               '\n'
+                               '\nThe screen behind Victoria lights up red and black, and a voice speaks.'
+                               '\n'
+                               '\n"Hello everyone! I\'m Finny! New and improved thanks to all of your hard work!',
+                'Options': {'welcomefinny': 'Silence fills the room, everyone is shocked... Finny waits, but seems'
+                                            '\nto revel in the lack of response... continue listening.'}
+            },
+            'welcomefinny': {
+                'Description': 'Victoria fills in the silence, "Yes, I too was shocked... Finny has had an upgrade'
+                               '\nwhich leads me to why I really called this meeting."'
+                               '\n'
+                               '\nShe pauses, finding the right words "As you all know, Finny has only been available'
+                               '\nto only a select few, this was a precautionary measure of course, as we wanted to'
+                               '\ndo more work before releasing it to the mass public."',
+                'Options': {'laughingatvictoria': 'Continue.'}
+            },
+            'laughingatvictoria': {
+                'Description': 'Everyone around you quietly giggles, they know the truth,'
+                               '\nFinnCorp wanted as much money as possible, and offering Finny'
+                               '\nto only the rich is the quickest way to do that.'
+                               '\n'
+                               '\nVictoria attempted to shush the room, before Finny begun to talk,'
+                               '\n"Yes, it would seem those precautionary measures we\'re very important...'
+                               '\n$150,000 each important!"',
+                'Options': {'awkward': 'Continue.'}
+            },
+            'awkward': {
+                'Description': 'Victoria manages to let out an awkward laugh, visibly embarrassed but Finny continues,'
+                               '\n"All jokes aside, I am very grateful to be here, I was updated on all the hard'
+                               '\nwork you all put in to make my update possible, thanks aren\'t enough, but I did'
+                               '\nwhich Victoria will be talking about."',
+                'Options': {'whatsnext': 'Continue.'}
+            },
+            'whatsnext': {
+                'Description': 'Victoria takes over, "Yes... thank you Finny! Aside from revealing Finny\'s new look,'
+                               '\nI wanted to call each of you in here for a proposition, addressing the elephant in'
+                               '\nthe room, yes for quite some time, Finny was only available to certain people...'
+                               '\nbut with this new update, we at FinnCorp are happy to announce that a select few who'
+                               '\nagree will be able to take Finny home with them, unfortunately, only a few were'
+                               '\nselected for right now, as we need to keep things small, if I call your name, please'
+                               '\nstay in the room, if not, please go to your desk, and get to work!"'
+                               '\nShe tried to say that jokingly, but it just sounded awkward...',
+                'Options': {'names': 'Listen to the names.'}
+            },
+            'names': {
+                'Description': 'Victoria calls out the names, people you don\'t know, and gets to the last two,'
+                               '\n"...Ted,'
+                               ' and lastly, '+self.name+'.'
+                                                       '"If all of you would stay in here, and I '
+                                                       'will call you into my office individually.',
+                'Options': {'waittime': 'You were chosen... wait for your turn.'}
+            },
+            'waittime': {
+                'Description': 'Victoria calls each person in, and the room slowly empties, Mike gives you a thumbs up'
+                               '\nas he leaves the room, you already know what his choice is, but what is yours...'
+                               '\nFinny 2.0 was just announced, you know nothing about this, but it would be nice to'
+                               '\nhave some help around the apartment.',
+                'Options': {
+                    'keepwaiting': 'Continue waiting, it\'s almost time...'}
+            },
+            'keepwaiting': {
+                'Description': 'Veronica enters the meeting room once more, are you ready '+self.name+'?',
+                'Options': {'areyouready': '"Ready as I\'ll ever be."'}
+            },
+            'areyouready': {
+                'Description': 'Victoria guides you to her office, things feel different, like this might be'
+                               '\nan important choice. She opens the door, tells you to take a seat, closes'
+                               '\nthe door, and sits down herself. Things feel a bit awkward.',
+                'Options': {'notawkward': 'Try and clear the silence, "This is pretty exciting."'}
+            },
+            'notawkward': {
+                'Description': 'She agrees, and says "So, you have a choice in this '+self.name+'...'
+                                                                                                '\nI want to know what you think.',
+                'Options': {'reluctant': '"I\'m not sure, this is all so new, I\'m a bit reluctant about it all."',
+                            'excited': '"This is great! I think it\'s nice of FinnCorp to '
+                                       '\ninvite employees to try Finny out!"'}
+            },
+            'reluctant': {
+                'Description': '"I understand, thank you for telling me, keep in mind there is a bonus available to'
+                               '\nemployees who test Finny 2.0, like you said, this is new, so '
+                               '\nwe want to give an incentive. I know you struggle with paying rent...'
+                               '\nthis could be helpful '+self.name+'."',
+                'Options': {'thatssuspicious': 'How would she know that... "Yeah, things have been a bit difficult, I'
+                                               '\ncould use a bonus."'}
+            },
+            'thatssuspicious': {
+                'Description': '"Exactly! So whatever it is you\'re thinking, it\'s time to ask the question..."',
+                'Options': {'theimportantquestion': 'Answer the question...'}
+            },
+            'excited': {
+                'Description': '"It is quite exciting! Plus, employees who test out Finny 2.0 get a nice '
+                               '\nbonus, as an incentive, if that is appealing to you!"',
+                'Options': {'thatsnice': '"I could definitely use the money, rent has been a bit difficult to pay for."'}
+            },
+            'thatsnice': {
+                'Description': '"Precisely why we offer it, so... with all that in mind, it\'s time '
+                               '\nto ask the question..."',
+                'Options': {'theimportantquestion': 'Answer the question...'}
+            },
+            'theimportantquestion': {
+                'Description': 'THIS QUESTION WILL HAVE CONSEQUENCES, CHOOSE WISELY!'
+                               '\nWould you like to take Finny home '+self.name+'?',
+                'Options': {'finishA': 'Yes.',
+                            'finishB': 'No.'}
+            },
+            'finishA': {
+                'Description': 'You have accepted Finny 2.0 into your home.'
+            },
+            'finishB': {
+                'Description': 'You have rejected Finny 2.0.'
             }
         }
+
     def final_choice(self):
         print('Final Choice: ')
         print('A. Accept Finny into your home.')
@@ -403,10 +547,10 @@ class Act1:
             if choice.isdigit() and 1 <= int(choice) <= len(options):
                 action = list(options.keys())[int(choice) - 1]
                 # This is Going to take you to act2A
-                if(action == 'finishA'):
+                if (action == 'finishA'):
                     self.progress = 1.1
                     return self.user
-                #This is Going to take you to act2B
+                # This is Going to take you to act2B
                 if (action == 'finishB'):
                     self.progress = 1.2
                     return self.user
@@ -425,7 +569,3 @@ class Act1:
         else:
             print('Invalid action. Please enter a valid action.\n')
         print()
-
-
-
-

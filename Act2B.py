@@ -1,7 +1,9 @@
 # Act2B of Project Finny
 class Act2B:
-    def __init__(self, user_name):
-        self.user_name = user_name
+    def __init__(self, user):
+        self.user = user
+        self.progress = user.progress
+        self.name = user.name
         self.current_location = 'start'
         self.completed = False
         self.act2b_map = {
@@ -15,7 +17,7 @@ class Act2B:
                 }
             },
             'apoligize': {
-                'Description': '"I expected more from you '+self.user_name+', but nonetheless, it is your choice.'
+                'Description': '"I expected more from you '+self.name+', but nonetheless, it is your choice.'
                                                                            '\nYou may leave now.',
                 'Options': {
 
