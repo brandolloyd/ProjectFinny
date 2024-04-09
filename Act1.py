@@ -449,9 +449,9 @@ class Act1:
             'names': {
                 'Description': 'Victoria calls out the names, people you don\'t know, and gets to the last two,'
                                '\n"...Ted,'
-                               ' and lastly, '+self.name+'.'
-                                                       '"If all of you would stay in here, and I '
-                                                       'will call you into my office individually.',
+                               '\nand lastly, ' + self.name + '.'
+                                                              '"If all of you would stay in here, and I '
+                                                              'will call you into my office individually.',
                 'Options': {'waittime': 'You were chosen... wait for your turn.'}
             },
             'waittime': {
@@ -463,7 +463,7 @@ class Act1:
                     'keepwaiting': 'Continue waiting, it\'s almost time...'}
             },
             'keepwaiting': {
-                'Description': 'Veronica enters the meeting room once more, are you ready '+self.name+'?',
+                'Description': 'Veronica enters the meeting room once more, are you ready ' + self.name + '?',
                 'Options': {'areyouready': '"Ready as I\'ll ever be."'}
             },
             'areyouready': {
@@ -473,8 +473,8 @@ class Act1:
                 'Options': {'notawkward': 'Try and clear the silence, "This is pretty exciting."'}
             },
             'notawkward': {
-                'Description': 'She agrees, and says "So, you have a choice in this '+self.name+'...'
-                                                                                                '\nI want to know what you think.',
+                'Description': 'She agrees, and says "So, you have a choice in this ' + self.name + '...'
+                                                                                                    '\nI want to know what you think.',
                 'Options': {'reluctant': '"I\'m not sure, this is all so new, I\'m a bit reluctant about it all."',
                             'excited': '"This is great! I think it\'s nice of FinnCorp to '
                                        '\ninvite employees to try Finny out!"'}
@@ -483,7 +483,7 @@ class Act1:
                 'Description': '"I understand, thank you for telling me, keep in mind there is a bonus available to'
                                '\nemployees who test Finny 2.0, like you said, this is new, so '
                                '\nwe want to give an incentive. I know you struggle with paying rent...'
-                               '\nthis could be helpful '+self.name+'."',
+                               '\nthis could be helpful ' + self.name + '."',
                 'Options': {'thatssuspicious': 'How would she know that... "Yeah, things have been a bit difficult, I'
                                                '\ncould use a bonus."'}
             },
@@ -494,7 +494,8 @@ class Act1:
             'excited': {
                 'Description': '"It is quite exciting! Plus, employees who test out Finny 2.0 get a nice '
                                '\nbonus, as an incentive, if that is appealing to you!"',
-                'Options': {'thatsnice': '"I could definitely use the money, rent has been a bit difficult to pay for."'}
+                'Options': {
+                    'thatsnice': '"I could definitely use the money, rent has been a bit difficult to pay for."'}
             },
             'thatsnice': {
                 'Description': '"Precisely why we offer it, so... with all that in mind, it\'s time '
@@ -503,7 +504,7 @@ class Act1:
             },
             'theimportantquestion': {
                 'Description': 'THIS QUESTION WILL HAVE CONSEQUENCES, CHOOSE WISELY!'
-                               '\nWould you like to take Finny home '+self.name+'?',
+                               '\nWould you like to take Finny home ' + self.name + '?',
                 'Options': {'finishA': 'Yes.',
                             'finishB': 'No.'}
             },
