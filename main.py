@@ -37,8 +37,11 @@ def game():
     print('\nPlease allow us up to three business days to get back to you,\nAnd thank you for applying at FINNCORP.')
     print()
     #USE this to test the act
-    user.progress = 1.2
+    user.progress = 0
 
+    if user.progress == 0:
+        user = Act1(user)
+        user.start()
     # After Act 1 completes, final choice
     if user.progress == 1.1:
         user = Act2A(user)
