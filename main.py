@@ -9,6 +9,8 @@ from Act2A import Act2A  # Say yes to Finny
 from Act2B import Act2B  # Say no to Finny
 from Act3A import Act3A
 from Act3B import Act3B
+from Act3C import Act3C
+from Act3D import Act3D
 
 # This Object is the user.
 class CreateUser:
@@ -36,7 +38,7 @@ def game():
     print('Thank you for answering!')
     print('\nPlease allow us up to three business days to get back to you,\nAnd thank you for applying at FINNCORP.')
     print()
-    user.progress = 2.2
+    user.progress = 0
     if user.progress == 0:
         user = Act1(user)
         user.start()
@@ -52,8 +54,8 @@ def game():
     elif user.progress == 2.2:
         user = Act3B(user)
     elif user.progress == 2.3:
-        #user = Act3C(user)
+        user = Act3C(user)
     elif user.progress == 2.4:
-        #user = Act3D(user)
+        user = Act3D(user)
 
 game()
