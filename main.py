@@ -52,8 +52,8 @@ def game():
     elif user.progress == 2.2:
         user = Act3B(user)
     elif user.progress == 2.3:
-        user = Act3C(user)
+        #user = Act3C(user)
     elif user.progress == 2.4:
-        user = Act3D(user)
+        #user = Act3D(user)
 
 game()
