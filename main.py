@@ -6,7 +6,7 @@
 # Import Acts, player choice will decide which act they get
 from Act1 import Act1   # Static beginning act, introduce world and situation
 from Act2A import Act2A  # Say yes to Finny
-#from Act2 import Act2B  # Say no to Finny
+from Act2B import Act2B  # Say no to Finny
 from Act3 import Act3
 
 # This Object is the user.
