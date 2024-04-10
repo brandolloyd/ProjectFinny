@@ -548,11 +548,11 @@ class Act1:
             if choice.isdigit() and 1 <= int(choice) <= len(options):
                 action = list(options.keys())[int(choice) - 1]
                 # This is Going to take you to act2A
-                if (action == 'finishA'):
+                if action == 'finishA':
                     self.progress = 1.1
                     return self.user
                 # This is Going to take you to act2B
-                if (action == 'finishB'):
+                if action == 'finishB':
                     self.progress = 1.2
                     return self.user
                 self.handle_action(action)
