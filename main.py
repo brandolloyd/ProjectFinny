@@ -9,6 +9,8 @@ from Act2A import Act2A  # Say yes to Finny
 from Act2B import Act2B  # Say no to Finny
 from Act3A import Act3A
 from Act3B import Act3B
+from Act3C import Act3C
+from Act3D import Act3D
 
 # This Object is the user.
 class CreateUser:
