@@ -39,7 +39,7 @@ def game():
     print('\nPlease allow us up to three business days to get back to you,\nAnd thank you for applying at FINNCORP.')
     print()
     #USE this to test the act
-    user.progress = 0
+    user.progress = 1.2
 
     if user.progress == 0:
         user = Act1(user)
@@ -48,19 +48,19 @@ def game():
     if user.progress == 1.1:
         user = Act2A(user)
         user.start()
-    elif user.progress == 1.2:
+    if user.progress == 1.2:
         user = Act2B(user)
         user.start()
-    elif user.progress == 2.1:
+    if user.progress == 2.1:
         user = Act3A(user)
         user.start()
-    elif user.progress == 2.2:
+    if user.progress == 2.2:
         user = Act3B(user)
         user.start()
-    elif user.progress == 2.3:
+    if user.progress == 2.3:
         user = Act3C(user)
         user.start()
-    elif user.progress == 2.4:
+    if user.progress == 2.4:
         user = Act3D(user)
         user.start()
 #
